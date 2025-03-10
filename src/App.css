@@ -1,0 +1,32 @@
+.hero-heading {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 400;
+  color: oklch(var(--p));
+  letter-spacing: 0.025em;
+}
+
+.hero-heading-period {
+  color: oklch(var(--s))
+}
+
+.article-heading__title {
+  position: relative;
+}
+
+.article-heading__title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -23px;
+  height: 20px;
+  background: red;
+  /* 테스트용으로 눈에 잘 보이게 */
+  width: 50px;
+  transform-origin: left center;
+}
+
+.bitter-font {
+  font-family: 'Bitter', serif;
+  /* font-family: 'Roboto', serif; */
+}
