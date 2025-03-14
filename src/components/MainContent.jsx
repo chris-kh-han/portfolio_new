@@ -1,7 +1,7 @@
-const Main = ({ propsForHero }) => {
+const MainContent = ({ propsForHero }) => {
   const { title, content, image } = propsForHero;
   return (
-    <div className='min-h-screen rounded-xl border border-primary shadow-2xl bg-gradient-to-r from-primary-content to-secondary-content mb-4'>
+    <div className=''>
       <div className='flex-col lg:flex-row-reverse p-8'>
         <img
           src={image}
@@ -53,4 +53,4 @@ const Main = ({ propsForHero }) => {
   );
 };
 
-export default Main;
+export default MainContent;

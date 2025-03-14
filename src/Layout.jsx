@@ -30,7 +30,7 @@ const Layout = () => {
         {/* {location.pathname === currentPath && <Outlet />}{' '} */}
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
       {/* <small
         className='fixed bottom-[100px] left-[25px] text-left text-gray-400 rotate-[-90deg] origin-bottom-left font-sans mb-5 tracking-[0.02em] leading-none '
         // style='-webkit-font-smoothing: antialiased;'

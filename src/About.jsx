@@ -1,4 +1,4 @@
-import Hero from './components/Hero';
+import Hero from './components/MainContent';
 
 import avatar from '/assets/avatar.jpg';
 
@@ -15,7 +15,8 @@ const propsForHero = {
 const About = () => {
   return (
     <div className='p-8'>
-      <Hero propsForHero={propsForHero} />
+      {/* <Hero propsForHero={propsForHero} /> */}
+      {/* <Main /> */}
       <small
         className='fixed bottom-[100px] left-[25px] text-left text-gray-400  origin-bottom-left font-sans mb-5 tracking-[0.02em] leading-none
   opacity-0 animate-fadeIn'

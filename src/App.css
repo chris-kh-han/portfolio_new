@@ -30,3 +30,42 @@
   font-family: 'Bitter', serif;
   /* font-family: 'Roboto', serif; */
 }
+
+
+.social-links {
+  position: relative;
+  /* Ensure pseudo-element is positioned relative to this container */
+}
+
+.social-links:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  width: 80px;
+  margin-top: -2px;
+  background-color: red;
+  pointer-events: none;
+  z-index: 2;
+  /* Bring the line in front of icons */
+}
+
+.is-open.social-links:after {
+  animation: menuLineIn .5s cubic-bezier(0.45, 0.85, 0.35, 0.85) both;
+}
+
+@keyframes menuLineIn {
+  0% {
+    opacity: 0;
+    transform: translateX(500%) scaleX(5);
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: none;
+  }
+}
