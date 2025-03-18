@@ -1,22 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
 
 
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@theme {
+  --font-bitter: 'Bitter', 'sans-serif'
 }
 
-body {
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+/* body {
   font-family: 'Roboto', sans-serif;
 
-}
+} */
 
-@layer utilities {
+/* @layer utilities {
   .test-color {
     background-color: var(--p);
   }
-}
+} */

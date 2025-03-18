@@ -8,8 +8,10 @@ import Techstack from './components/Techstack';
 
 const PortfolioGrid = () => {
   return (
-    <div className='grid h-full grid-cols-1 gap-5 font-roboto md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-6'>
-      <div className='col-span-1 w-full xl:row-span-3 rounded-xl border border-primary shadow-2xl bg-gradient-to-r from-primary-content to-secondary-content'>
+    // <div className='grid grid-cols-1 gap-5 font-roboto md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-6 m-8 mt-[800px]'>
+    <div className='mt-[800px]'>
+      <div>Portfolio</div>
+      {/* <div className='col-span-1 w-full xl:row-span-3 rounded-xl border border-primary shadow-2xl bg-gradient-to-r from-primary-content to-secondary-content'>
         <Card
           title='Hello my name is Chris'
           content={`Hi, I'm Chris. Welcome to my portfolio! Showcasing my expertise in full-stack development with modern tools like React, Nextjs, and TypeScript.`}
@@ -96,7 +98,7 @@ const PortfolioGrid = () => {
           content={`From writing 'Hello World' to building great applications, every journey begins with a single line of code.`}
           image={commits}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

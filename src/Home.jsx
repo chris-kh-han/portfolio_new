@@ -5,6 +5,7 @@ import MainContent from './components/MainContent';
 import { StarIcon } from '@heroicons/react/24/solid';
 import avatar from '/assets/avatar.jpg';
 import { Link, useLocation } from 'react-router';
+import Header from './components/Header';
 
 const propsForHero = {
   page: 'Hello World!',
@@ -135,108 +136,9 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <div className='relative min-h-screen flex flex-col items-center justify-center m-8'>
-      {/* Menu Screen */}
-      {!isOpen && (
-        <div
-          ref={menuRef}
-          className='min-h-screen bg-gradient-to-r from-accent to-secondary-content w-full'
-        >
-          <div className='menu-link m-8 flex'>
-            <StarIcon className='size-12 text-blue-500' />
-            <button
-              className='uppercase tracking-[0.25rem] text-sm align-middle hover:tracking-[0.5rem] transition-all text-center w-[120px]'
-              onClick={() => setIsOpen(true)}
-            >
-              Menu
-            </button>
-          </div>
-          <MainContent propsForHero={propsForHero} />
-          <PortfolioGrid />
-        </div>
-      )}
-
-      {/* Close Screen */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            key='closeScreen'
-            initial={{ y: menuOffsetTop, opacity: 0 }} // Start from the Menu container's top offset
-            animate={{ y: 0, opacity: 1 }} // Animate down to y:0 (covering the screen)
-            exit={{ y: menuOffsetTop, opacity: 0, transition: { duration: 0 } }}
-            transition={{ duration: 0.7, ease: [0.165, 0.84, 0.44, 1] }}
-            className='fixed inset-0 bg-gray-900 text-white z-50 m-8'
-            style={{
-              transformOrigin: 'bottom left',
-              backfaceVisibility: 'hidden',
-              overflow: 'hidden',
-            }}
-          >
-            <div className='menu-link m-8 flex'>
-              <StarIcon className='size-12 text-white' />
-              <button
-                className='uppercase tracking-[0.25rem] text-sm align-middle hover:tracking-[0.5rem] transition-all text-center w-[120px]'
-                onClick={() => setIsOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-
-            <motion.div
-              className={`social-links ${isOpen ? 'is-open' : ''} flex m-8`}
-              variants={listVariants}
-              initial='hidden'
-              animate='visible'
-            >
-              {socialLinks.map((link) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                  className='mx-4 first:ml-32'
-                  variants={itemVariants}
-                >
-                  <img
-                    src={link.imgSrc}
-                    alt={link.alt}
-                    className='w-[40px] h-[40px] cursor-pointer'
-                  />
-                </motion.a>
-              ))}
-            </motion.div>
-
-            <motion.ul
-              variants={primaryLinkVariants}
-              initial='hidden'
-              animate='visible'
-              className='m-8'
-            >
-              {primaryLinks.map((primary) => (
-                <motion.li
-                  key={primary.href}
-                  variants={primaryLinkItemVariants}
-                  className='my-12 flex items-end'
-                >
-                  <Link
-                    to={primary.href}
-                    onClick={() => {
-                      if (location.pathname === primary.href) {
-                        setIsOpen(false);
-                      }
-                    }}
-                    className='w-[10rem]'
-                  >
-                    <div className='text-5xl'>{primary.name}</div>
-                  </Link>
-                  <div className='ml-32 align-bottom'>{primary.summary}</div>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <PortfolioGrid />
+    </>
   );
 };
 

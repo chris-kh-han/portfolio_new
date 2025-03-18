@@ -17,13 +17,7 @@ const About = () => {
     <div className='p-8'>
       {/* <Hero propsForHero={propsForHero} /> */}
       {/* <Main /> */}
-      <small
-        className='fixed bottom-[100px] left-[25px] text-left text-gray-400  origin-bottom-left font-sans mb-5 tracking-[0.02em] leading-none
-  opacity-0 animate-fadeIn'
-      >
-        <span className='inline-block mr-4 h-[1px] w-[25px] bg-gray-400'></span>
-        © 2025. Made by Chris Kwanhee Han.
-      </small>
+      About
     </div>
   );
 };

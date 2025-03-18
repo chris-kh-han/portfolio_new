@@ -54,19 +54,19 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: 'oklch(0.5 0.4 260)', // OKLCH 형식
-          secondary: 'oklch(0.6 0.3 190)',
-          accent: 'oklch(0.4 0.7 120)',
-        },
-      },
-      'light',
-      'dark',
-      'cupcake',
-    ],
-  },
+  // plugins: [daisyui],
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       mytheme: {
+  //         primary: 'oklch(0.5 0.4 260)', // OKLCH 형식
+  //         secondary: 'oklch(0.6 0.3 190)',
+  //         accent: 'oklch(0.4 0.7 120)',
+  //       },
+  //     },
+  //     'light',
+  //     'dark',
+  //     'cupcake',
+  //   ],
+  // },
 };
