@@ -1,0 +1,33 @@
+.copyright {
+  /* animation: 8s ease-in-out 0s infinite normal none running scrollBob; */
+  animation: 1s ease-out 1.5s 1 normal backwards running reveal;
+}
+
+@keyframes scrollBob {
+  0%,
+  10% {
+    transform: none;
+    opacity: 1;
+
+    color: var(--text);
+  }
+
+  8% {
+    transform: translateY(-2px);
+    color: var(--line);
+  }
+
+  4% {
+    transform: translateY(3px);
+    opacity: 1;
+
+    color: var(--text);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

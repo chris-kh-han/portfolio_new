@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, Outlet, useLocation, useNavigation } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useSelector, useDispatch } from 'react-redux';
 
 import './animations.css';
 import Header from './components/Header';
 
 import { StarIcon } from '@heroicons/react/24/solid';
+import FooterNote from './components/FooterNote';
 
 const listVariants = {
   hidden: {},
@@ -113,7 +113,9 @@ const Layout = () => {
     if (location.pathname == '/') {
       document.documentElement.setAttribute('data-theme', 'light'); // 테마 적용
     } else if (location.pathname == '/about') {
-      document.documentElement.setAttribute('data-theme', 'dark'); // 테마 적용
+      document.documentElement.setAttribute('data-theme', 'about'); // 테마 적용
+    } else if (location.pathname == '/work') {
+      document.documentElement.setAttribute('data-theme', 'work'); // 테마 적용
     }
   }, [navigation.state, setIsLoading, location.pathname]);
 
@@ -151,10 +153,10 @@ const Layout = () => {
   }, [isOpen]);
 
   return (
-    <div className='relative min-h-screen flex flex-col items-center justify-center m-4 bg-gradient-to-r from-primary to-secondary-content'>
+    <div className='portfolio-div relative min-h-screen flex flex-col items-center justify-center m-4'>
       {isLoading ? (
         <>
-          <span className='loading loading-infinity loading-xl'></span>
+          <span className='pagewrap loading loading-infinity w-[64px]'></span>
         </>
       ) : (
         <>
@@ -162,20 +164,29 @@ const Layout = () => {
           {!isOpen && (
             <div
               ref={menuRef}
-              className='min-h-screen bg-gradient-to-r from-primary to-secondary-content w-full'
+              className='min-h-screen w-full'
             >
-              <div className='menu-link m-8 flex'>
-                <StarIcon className='size-12 text-blue-500' />
+              {/* <div className='menu-link m-8 flex'>
+                <StarIcon className='size-12 text-' />
                 <button
                   className='uppercase tracking-[0.25rem] text-sm align-middle hover:tracking-[0.5rem] transition-all text-center w-[120px]'
                   onClick={() => setIsOpen(true)}
                 >
                   Menu
                 </button>
-              </div>
+              </div> */}
 
-              <Header />
+              <Header
+                setIsOpen={setIsOpen}
+                currentLocation={location.pathname}
+              />
               {/* <MainContent propsForHero={propsForHero} /> */}
+              <main className='w-full mt-[940px] mb-48'>
+                {/* {location.pathname === currentPath && <Outlet />}{' '} */}
+                <Outlet />
+              </main>
+              {/* <Footer /> */}
+              <FooterNote />
             </div>
           )}
 
@@ -262,28 +273,6 @@ const Layout = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
-          <main
-          // className={`flex-grow transition-all duration-500 transform ${
-          //   isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-          // }`}
-          >
-            {/* {location.pathname === currentPath && <Outlet />}{' '} */}
-            <Outlet />
-          </main>
-          {/* <Footer /> */}
-          {/* <small
-        className='fixed bottom-[100px] left-[25px] text-left text-gray-400 rotate-[-90deg] origin-bottom-left font-sans mb-5 tracking-[0.02em] leading-none '
-        // style='-webkit-font-smoothing: antialiased;'
-      > */}
-
-          <small
-            className='fixed bottom-[100px] left-[15px] text-left text-gray-400  origin-bottom-left font-sans mb-5 tracking-[0.02em] leading-none
-  opacity-0 animate-fadeIn'
-          >
-            <span className='inline-block mr-4 h-[1px] w-[25px] bg-gray-400'></span>
-            © 2025. Made by Chris Kwanhee Han.
-          </small>
         </>
       )}
     </div>

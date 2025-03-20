@@ -1,9 +1,11 @@
-@import "tailwindcss";
-@plugin "daisyui";
+@import 'tailwindcss';
 
+@plugin "daisyui" {
+  themes: all;
+}
 
 @theme {
-  --font-bitter: 'Bitter', 'sans-serif'
+  --font-bitter: 'Bitter', 'sans-serif';
 }
 
 @layer base {
@@ -12,17 +14,52 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bitter', sans-serif;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  [data-theme='light'] {
+    --bg: #e0e7ff;
+
+    --line: #5a00b0;
+
+    --fill: #a8c7ff;
+
+    --text: #1c2850;
+
+    --subtext: #6f92c6;
+
+    --duo: #a8c7ff;
+  }
+
+  [data-theme='about'] {
+    --bg: #fae4f0;
+    --line: #d14078;
+    --fill: #ff9dc3;
+    --text: #630d39;
+    --subtext: #c27ba3;
+    --duo: #ffb3c9;
+  }
+
+  [data-theme='work'] {
+    --bg: #010101;
+    --line: #ffcc00;
+    --fill: #333333;
+    --text: #ffffff;
+    --subtext: #aaaaaa;
+    --duo: #ff9900;
+  }
+
+  [data-theme='custom'] {
+    --bg: #e0e7ff;
+    --line: #5a00b0;
+    --fill: #a8c7ff;
+    --text: #1c2850;
+    --subtext: #6f92c6;
+    --duo: #a8c7ff;
   }
 }
-
-/* body {
-  font-family: 'Roboto', sans-serif;
-
-} */
-
-/* @layer utilities {
-  .test-color {
-    background-color: var(--p);
-  }
-} */

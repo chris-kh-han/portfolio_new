@@ -1,3 +1,7 @@
+.portfolio-div {
+  background: var(--bg);
+}
+
 .hero-heading {
   position: relative;
   font-size: 3rem;
@@ -7,7 +11,7 @@
 }
 
 .hero-heading-period {
-  color: oklch(var(--s))
+  color: oklch(var(--s));
 }
 
 .article-heading__title {
@@ -31,14 +35,13 @@
   /* font-family: 'Roboto', serif; */
 }
 
-
 .social-links {
   position: relative;
   /* Ensure pseudo-element is positioned relative to this container */
 }
 
 .social-links:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 0;
@@ -52,7 +55,17 @@
 }
 
 .is-open.social-links:after {
-  animation: menuLineIn .5s cubic-bezier(0.45, 0.85, 0.35, 0.85) both;
+  animation: menuLineIn 0.5s cubic-bezier(0.45, 0.85, 0.35, 0.85) both;
+}
+
+.pagewrap {
+  min-height: calc(100vh - 40px);
+  position: relative;
+  background: var(--color-secondary);
+  overflow: hidden;
+  transition: background 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: slideOutAndDisappear 1s ease-in-out 1s forwards;
+  /* 🔹 1초 대기 후 애니메이션 실행 */
 }
 
 @keyframes menuLineIn {
@@ -68,4 +81,38 @@
   100% {
     transform: none;
   }
+}
+
+@keyframes slideOutAndDisappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    /* transform: translateY(100vh); */
+  }
+}
+
+.pagewrap {
+  /* min-height: calc(100vh - 40px); */
+  /* position: absolute; */
+  /* ✅ 화면에서 빠지도록 조정 */
+  /* width: 100%; */
+  background: #fff;
+  /* overflow: hidden; */
+  transition: background 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pagewrap.slide-out {
+  animation: slideOutAndDisappear 1s ease-in-out forwards;
+  pointer-events: none;
+  /* Keep this to prevent clicks */
+  /* Remove the display: none from here */
+  /* display: none */
 }

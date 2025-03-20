@@ -1,4 +1,4 @@
-import Card from './components/Card';
+import Card from './components/CardList';
 
 // import techstack from '/assets/techstack.png';
 import programming from '/assets/programming.jpg';

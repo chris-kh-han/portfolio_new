@@ -1,27 +1,30 @@
 .header-container {
-  position: relative
+  position: relative;
+  color: var(--text);
 }
 
 .header-title {
-
   animation: fadeInDown 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) both;
   animation-delay: 0.3s;
-
 }
 
 .header-subtitle {
-  position: relative
+  position: relative;
+}
+
+.header-subtitle > span {
+  color: var(--subtext);
 }
 
 .header-subtitle:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 150%;
   left: 0;
   height: 3px;
   width: 160px;
   margin-top: -2px;
-  background-color: var(--color-secondary);
+  background-color: var(--line);
   pointer-events: none;
   z-index: 2;
   /* @apply bg-primary; */
@@ -29,7 +32,7 @@
 }
 
 .header-subtitle:after {
-  animation: menuLineIn .8s cubic-bezier(0.45, 0.85, 0.35, 0.85) both;
+  animation: menuLineIn 0.8s cubic-bezier(0.45, 0.85, 0.35, 0.85) both;
   animation-delay: 0.3s;
 }
 
@@ -41,92 +44,87 @@
 
 .header-bar {
   position: relative;
-
 }
 
 .header-bar::after {
-  content: "";
+  content: '';
   position: absolute;
 
   width: 700px;
   height: 250px;
   background:
-    repeating-linear-gradient(45deg,
+    repeating-linear-gradient(
+      45deg,
       transparent,
       transparent 10px,
-      var(--color-accent) 10px,
-      var(--color-accent) 20px),
+      var(--fill) 10px,
+      var(--fill) 20px
+    ),
     linear-gradient(to bottom, #eee, #999);
   opacity: 0.2;
 
-
-  animation: barReveal 0.7s cubic-bezier(.23, 1, .32, 1) 1.5s both;
+  animation: barReveal 0.7s cubic-bezier(0.23, 1, 0.32, 1) 1.5s both;
   transform: translateY(-50%);
-
 }
 
 .header-scroll {
   position: absolute;
   /* bottom: -120px; */
-  top: 480px;
-  left: 150px;
+  top: 600px;
+  left: 125px;
   text-transform: uppercase;
   transform: translateX(-50%);
-  color: var(--color-neutral);
+  color: var(--text);
   /* transform: translateX(-50%); */
 }
 
-.header-scroll>span {
+.header-scroll > span {
+  position: relative;
   animation: 1s ease-out 1.5s 1 normal backwards running reveal;
 }
 
-
-.header-scroll>span span:first-child {
+.header-scroll > span span:first-child {
   animation-delay: 3.0725s;
 }
 
-.header-scroll>span span:nth-child(2) {
+.header-scroll > span span:nth-child(2) {
   animation-delay: 3.145s;
 }
 
-.header-scroll>span span:nth-child(3) {
+.header-scroll > span span:nth-child(3) {
   animation-delay: 3.2175s;
 }
 
-.header-scroll>span span:nth-child(4) {
+.header-scroll > span span:nth-child(4) {
   animation-delay: 3.29s;
 }
 
-.header-scroll>span span:nth-child(5) {
+.header-scroll > span span:nth-child(5) {
   animation-delay: 3.3625s;
 }
 
-.header-scroll>span span:nth-child(6) {
+.header-scroll > span span:nth-child(6) {
   animation-delay: 3.435s;
 }
 
-
-.header-scroll>span span {
+.header-scroll > span span {
   display: inline-block;
   margin: 0px 1px;
   animation: 8s ease-in-out 0s infinite normal none running scrollBob;
 }
 
-.header-container:after {
-  content: "";
+.header-scroll > span:after {
+  content: '';
   transform-origin: bottom center;
   position: absolute;
   width: 1px;
   height: 50vh;
-  left: 150px;
-  top: calc(100% + 240px);
-  background: var(--color-neutral);
-  opacity: .45;
+  left: 43px;
+  top: calc(100% + 70px);
+  background: var(--text);
+  opacity: 0.45;
   animation: vLineIn 1s ease-in-out 1.5s backwards;
-
 }
-
-
 
 @keyframes barReveal {
   0% {
@@ -137,8 +135,6 @@
     transform: translateX(300px) translateY(-50%);
   }
 }
-
-
 
 @keyframes menuLineIn {
   0% {
@@ -179,34 +175,28 @@
     opacity: 0;
     transform: translateY(8px);
   }
-
 }
 
-
 @keyframes scrollBob {
-
   0%,
   10% {
     transform: none;
     opacity: 1;
 
-    color: var(--color-neutral);
-
+    color: var(--text);
   }
-
 
   8% {
     transform: translateY(-2px);
-    color: var(--color-accent);
+    color: var(--line);
   }
 
   4% {
     transform: translateY(3px);
     opacity: 1;
 
-    color: var(--color-neutral);
+    color: var(--text);
   }
-
 }
 
 @keyframes vLineIn {
